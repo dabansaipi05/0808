@@ -17,17 +17,11 @@ shinyServer(function(input, output) {
 
     # draw the histogram with the specified number of bins
     hist(x, breaks = bins, col = 'darkgray', border = 'white')
+    
+    
   })
-  output$shownuminput <- renderPlot({
-    getendpoint = input$numinput
-    plot(1:getendpoint)
-  })
+  output$hover_info <-renderPrint({
+    str(input$plot_hover$y)
+    })
   
-  output$showtext <-renderText({
-    htmltext = "<font color='red' size='15'>"
-    htmltext = paste(htmltext, input$textinput, sep="")
-    htmltext = paste(htmltext, "</font>", sep="")
-    print(htmltext)
-  })
-
 })

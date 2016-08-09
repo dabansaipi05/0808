@@ -19,19 +19,12 @@ shinyUI(fluidPage(
                   "Number of bins:",
                   min = 1,
                   max = 50,
-                  value = 30),
-      numericInput("numinput",
-                   "numeric input test",
-                   value = 10),
-      textInput("textinput",
-                "text input test",
-                value = 100)
+                  value = 30)
     ),
+
     # Show a plot of the generated distribution
     mainPanel(
-      plotOutput("displot"),
-      plotOutput("shownuminput"),
-      htmlOutput("showtext")
-    )
-  )
+      plotOutput("distPlot",hover = hoverOpts("id=plot_hover")),
+      verbatimTextOutput("hover_info")
+    ))
 ))
